@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Argon Dashboard</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon -->
+        <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        <!-- Icons -->
+        <link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
+        <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+        <!-- Argon CSS -->
+        <link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <script>
+          const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search-input');
+searchButton.addEventListener('click', () => {
+  const inputValue = searchInput.value;
+  alert(inputValue);
+});
+        // data1=fetch('https://run.mocky.io/v3/f3feef1c-9bfa-43fd-b2a0-bbe9abadb4f6').then(data=>{data.json().then(data=>{console.log(data)})})</script>
+        <!-- Core -->
+        <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Argon JS -->
+        <script src="/assets/js/argon.min.js"></script>
+        <script>fetch("https://run.mocky.io/v3/f3feef1c-9bfa-43fd-b2a0-bbe9abadb4f6").then(
+            res => {
+              res.json().then(
+                data => {
+                  console.log(data.data);
+                  if (data.clients.length > 0) {
+          
+                    var temp = "";
+                    data.clients.forEach((itemData) => {
+                      temp += "<tr>";
+                      temp += "<td>&nbsp" + itemData.name + "&nbsp</td>";
+                      temp += "<td>" + itemData.company + "&nbsp</td>";
+                       "</tr>";
+                    });
+                    document.getElementById('data').innerHTML = temp;
+                  }
+                }
+              )
+            }
+          )</script>
+    <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>&nbspCompany</th>
+              
+            </tr>
+          </thead>
+          <tbody id="data">
+          </tbody>
+        </table>
+      </div>
+    </body>
+</html>
